@@ -30,3 +30,20 @@ def test_dimensiones_invalidas_retornan_none():
     assert inicializar_tablero(0, 10) is None
     assert inicializar_tablero(20, 0) is None
     assert inicializar_tablero(-1, -1) is None
+
+
+#Ejecutor de pruebas
+def ejecutar_prueba(nombre, prueba):
+    try:
+        prueba()
+        print(f"{nombre}: True")
+    except AssertionError:
+        print(f"{nombre}: False")
+
+if __name__ == "__main__":
+    ejecutar_prueba("test_tablero_tiene_20_filas", test_tablero_tiene_20_filas)
+    ejecutar_prueba("test_cada_fila_tiene_10_columnas", test_cada_fila_tiene_10_columnas)
+    ejecutar_prueba("test_todas_las_celdas_inician_en_cero", test_todas_las_celdas_inician_en_cero)
+    ejecutar_prueba("test_score_inicial_es_cero", test_score_inicial_es_cero)
+    ejecutar_prueba("test_estado_inicial_es_start", test_estado_inicial_es_start)
+    ejecutar_prueba("test_dimensiones_invalidas_retornan_none", test_dimensiones_invalidas_retornan_none)

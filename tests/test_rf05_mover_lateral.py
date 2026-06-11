@@ -44,3 +44,37 @@ def test_no_se_mueve_si_celda_lateral_ocupada():
     pieza = _pieza(x=5, y=5)
     pieza = mover_lateral(pieza, juego, dx=1)
     assert pieza["x"] == 5
+
+#Ejecutor de pruebas
+def ejecutar_prueba(nombre, prueba):
+    try:
+        prueba()
+        print(f"{nombre}: True")
+    except AssertionError:
+        print(f"{nombre}: False")
+
+if __name__ == "__main__":
+    ejecutar_prueba(
+        "test_mover_izquierda_con_espacio_libre",
+        test_mover_izquierda_con_espacio_libre
+    )
+
+    ejecutar_prueba(
+        "test_mover_derecha_con_espacio_libre",
+        test_mover_derecha_con_espacio_libre
+    )
+
+    ejecutar_prueba(
+        "test_no_sale_por_borde_izquierdo",
+        test_no_sale_por_borde_izquierdo
+    )
+
+    ejecutar_prueba(
+        "test_no_sale_por_borde_derecho",
+        test_no_sale_por_borde_derecho
+    )
+
+    ejecutar_prueba(
+        "test_no_se_mueve_si_celda_lateral_ocupada",
+        test_no_se_mueve_si_celda_lateral_ocupada
+    )

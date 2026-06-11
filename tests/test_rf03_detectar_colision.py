@@ -39,3 +39,45 @@ def test_colision_con_celda_ocupada():
 
 def test_pieza_none_retorna_true():
     assert detectar_colision(None, _juego()) == True
+
+# Ejecución de pruebas
+def ejecutar_prueba(nombre, prueba):
+    try:
+        prueba()
+        print(f"{nombre}: True")
+    except AssertionError:
+        print(f"{nombre}: False")
+    except Exception as e:
+        print(f"{nombre}: Error ({e})")
+
+
+if __name__ == "__main__":
+    ejecutar_prueba(
+        "test_sin_obstaculo_no_hay_colision",
+        test_sin_obstaculo_no_hay_colision
+    )
+
+    ejecutar_prueba(
+        "test_colision_con_borde_inferior",
+        test_colision_con_borde_inferior
+    )
+
+    ejecutar_prueba(
+        "test_colision_con_borde_izquierdo",
+        test_colision_con_borde_izquierdo
+    )
+
+    ejecutar_prueba(
+        "test_colision_con_borde_derecho",
+        test_colision_con_borde_derecho
+    )
+
+    ejecutar_prueba(
+        "test_colision_con_celda_ocupada",
+        test_colision_con_celda_ocupada
+    )
+
+    ejecutar_prueba(
+        "test_pieza_none_retorna_true",
+        test_pieza_none_retorna_true
+    )

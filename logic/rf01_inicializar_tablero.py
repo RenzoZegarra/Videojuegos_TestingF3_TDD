@@ -19,3 +19,4 @@ def inicializar_tablero(height: int, width: int) -> dict:
         "height": height,
         "width": width,
     }
+

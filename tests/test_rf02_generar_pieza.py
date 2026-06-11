@@ -31,3 +31,21 @@ def test_imagen_retorna_lista_de_4_celdas():
     imagen = get_imagen_pieza(pieza)
     assert isinstance(imagen, list)
     assert len(imagen) == 4
+
+#Ejecutor de pruebas
+def ejecutar_prueba(nombre, prueba):
+    try:
+        prueba()
+        print(f"{nombre}: True")
+    except AssertionError:
+        print(f"{nombre}: False")
+    except Exception as e:
+        print(f"{nombre}: Error ({e})")
+
+if __name__ == "__main__":
+    ejecutar_prueba("test_pieza_es_un_diccionario", test_pieza_es_un_diccionario)
+    ejecutar_prueba("test_tipo_en_rango_valido", test_tipo_en_rango_valido)
+    ejecutar_prueba("test_color_en_rango_valido", test_color_en_rango_valido)
+    ejecutar_prueba("test_posicion_inicial_es_3_0", test_posicion_inicial_es_3_0)
+    ejecutar_prueba("test_rotacion_inicial_es_cero", test_rotacion_inicial_es_cero)
+    ejecutar_prueba("test_imagen_retorna_lista_de_4_celdas", test_imagen_retorna_lista_de_4_celdas)

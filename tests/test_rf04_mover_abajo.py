@@ -42,3 +42,37 @@ def test_pieza_retorna_none_tras_congelarse():
     pieza = _pieza_cuadrado(y=18)
     resultado = mover_abajo(pieza, _juego())
     assert resultado["pieza"] is None
+
+#Ejecutor de pruebas
+def ejecutar_prueba(nombre, prueba):
+    try:
+        prueba()
+        print(f"{nombre}: True")
+    except AssertionError:
+        print(f"{nombre}: False")
+
+if __name__ == "__main__":
+    ejecutar_prueba(
+        "test_pieza_baja_una_celda_si_hay_espacio",
+        test_pieza_baja_una_celda_si_hay_espacio
+    )
+
+    ejecutar_prueba(
+        "test_pieza_no_se_congela_si_hay_espacio",
+        test_pieza_no_se_congela_si_hay_espacio
+    )
+
+    ejecutar_prueba(
+        "test_pieza_se_congela_al_llegar_al_fondo",
+        test_pieza_se_congela_al_llegar_al_fondo
+    )
+
+    ejecutar_prueba(
+        "test_field_se_actualiza_al_congelarse",
+        test_field_se_actualiza_al_congelarse
+    )
+
+    ejecutar_prueba(
+        "test_pieza_retorna_none_tras_congelarse",
+        test_pieza_retorna_none_tras_congelarse
+    )

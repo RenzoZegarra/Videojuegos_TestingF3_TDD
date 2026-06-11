@@ -43,3 +43,32 @@ def test_tablero_no_se_modifica_al_detectar_game_over():
     field_antes = [fila[:] for fila in juego["field"]]
     juego = detectar_game_over(pieza, juego)
     assert juego["field"] == field_antes
+
+#Ejecutor de pruebas
+def ejecutar_prueba(nombre, prueba):
+    try:
+        prueba()
+        print(f"{nombre}: True")
+    except AssertionError:
+        print(f"{nombre}: False")
+
+if __name__ == "__main__":
+    ejecutar_prueba(
+        "test_estado_no_cambia_si_hay_espacio",
+        test_estado_no_cambia_si_hay_espacio
+    )
+
+    ejecutar_prueba(
+        "test_estado_cambia_a_gameover_si_colisiona",
+        test_estado_cambia_a_gameover_si_colisiona
+    )
+
+    ejecutar_prueba(
+        "test_state_es_string_gameover",
+        test_state_es_string_gameover
+    )
+
+    ejecutar_prueba(
+        "test_tablero_no_se_modifica_al_detectar_game_over",
+        test_tablero_no_se_modifica_al_detectar_game_over
+    )

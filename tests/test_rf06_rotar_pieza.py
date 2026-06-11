@@ -47,3 +47,37 @@ def test_cuadrado_no_cambia_visualmente_pero_no_falla():
     pieza = _pieza(tipo=6)
     pieza = rotar_pieza(pieza, _juego())
     assert pieza["rotation"] == 0
+
+#Ejecutor de pruebas
+def ejecutar_prueba(nombre, prueba):
+    try:
+        prueba()
+        print(f"{nombre}: True")
+    except AssertionError:
+        print(f"{nombre}: False")
+
+if __name__ == "__main__":
+    ejecutar_prueba(
+        "test_rotacion_avanza_en_campo_libre",
+        test_rotacion_avanza_en_campo_libre
+    )
+
+    ejecutar_prueba(
+        "test_rotacion_es_ciclica",
+        test_rotacion_es_ciclica
+    )
+
+    ejecutar_prueba(
+        "test_imagen_coincide_con_rotacion_actual",
+        test_imagen_coincide_con_rotacion_actual
+    )
+
+    ejecutar_prueba(
+        "test_rotacion_se_revierte_si_colisiona",
+        test_rotacion_se_revierte_si_colisiona
+    )
+
+    ejecutar_prueba(
+        "test_cuadrado_no_cambia_visualmente_pero_no_falla",
+        test_cuadrado_no_cambia_visualmente_pero_no_falla
+    )

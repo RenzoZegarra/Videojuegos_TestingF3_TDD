@@ -42,3 +42,37 @@ def test_caida_respeta_obstaculos_en_campo():
     field = resultado["juego"]["field"]
     assert all(field[r][c] == 0 or field[r][c] == 2
                for r in range(11, 20) for c in range(3, 7))
+
+#Ejecutor de pruebas
+def ejecutar_prueba(nombre, prueba):
+    try:
+        prueba()
+        print(f"{nombre}: True")
+    except AssertionError:
+        print(f"{nombre}: False")
+
+if __name__ == "__main__":
+    ejecutar_prueba(
+        "test_pieza_alcanza_posicion_mas_baja",
+        test_pieza_alcanza_posicion_mas_baja
+    )
+
+    ejecutar_prueba(
+        "test_pieza_queda_congelada",
+        test_pieza_queda_congelada
+    )
+
+    ejecutar_prueba(
+        "test_pieza_activa_es_none_tras_caida",
+        test_pieza_activa_es_none_tras_caida
+    )
+
+    ejecutar_prueba(
+        "test_sin_pieza_activa_no_hace_nada",
+        test_sin_pieza_activa_no_hace_nada
+    )
+
+    ejecutar_prueba(
+        "test_caida_respeta_obstaculos_en_campo",
+        test_caida_respeta_obstaculos_en_campo
+    )

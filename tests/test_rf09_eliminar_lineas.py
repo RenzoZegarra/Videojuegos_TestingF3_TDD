@@ -48,3 +48,42 @@ def test_sin_lineas_completas_field_no_cambia():
     juego["field"][19][0] = 1
     juego = eliminar_lineas(juego)
     assert juego["field"][19][0] == 1
+
+#Ejecutor de pruebas
+def ejecutar_prueba(nombre, prueba):
+    try:
+        prueba()
+        print(f"{nombre}: True")
+    except AssertionError:
+        print(f"{nombre}: False")
+
+if __name__ == "__main__":
+    ejecutar_prueba(
+        "test_fila_completa_se_elimina",
+        test_fila_completa_se_elimina
+    )
+
+    ejecutar_prueba(
+        "test_filas_superiores_bajan",
+        test_filas_superiores_bajan
+    )
+
+    ejecutar_prueba(
+        "test_score_aumenta_con_1_linea",
+        test_score_aumenta_con_1_linea
+    )
+
+    ejecutar_prueba(
+        "test_score_aumenta_con_2_lineas_simultaneas",
+        test_score_aumenta_con_2_lineas_simultaneas
+    )
+
+    ejecutar_prueba(
+        "test_sin_lineas_completas_score_no_cambia",
+        test_sin_lineas_completas_score_no_cambia
+    )
+
+    ejecutar_prueba(
+        "test_sin_lineas_completas_field_no_cambia",
+        test_sin_lineas_completas_field_no_cambia
+    )

@@ -48,3 +48,32 @@ def test_congelar_no_lanza_error_en_borde():
         assert True
     except IndexError:
         assert False, "congelar_pieza lanzó IndexError cerca del borde"
+
+#Ejecutor de pruebas
+def ejecutar_prueba(nombre, prueba):
+    try:
+        prueba()
+        print(f"{nombre}: True")
+    except AssertionError:
+        print(f"{nombre}: False")
+
+if __name__ == "__main__":
+    ejecutar_prueba(
+        "test_bloques_se_escriben_en_field",
+        test_bloques_se_escriben_en_field
+    )
+
+    ejecutar_prueba(
+        "test_color_de_bloque_se_conserva",
+        test_color_de_bloque_se_conserva
+    )
+
+    ejecutar_prueba(
+        "test_celdas_vacias_no_se_modifican",
+        test_celdas_vacias_no_se_modifican
+    )
+
+    ejecutar_prueba(
+        "test_congelar_no_lanza_error_en_borde",
+        test_congelar_no_lanza_error_en_borde
+    )
