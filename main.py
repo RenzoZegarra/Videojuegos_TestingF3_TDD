@@ -55,7 +55,7 @@ def pedir_accion() -> str:
 # ── Bucle principal ───────────────────────────────────────────────────────────
 
 def main():
-    print("=== TETRIS (modo consola — sin interfaz gráfica) ===\n")
+    print("=== TETRIS (modo consola) ===\n")
 
     # RF-01: Inicializar tablero
     juego = inicializar_tablero(height=20, width=10)
