@@ -42,9 +42,9 @@ python main2.py
 
 ## Controles
 
-- Para rotar la pieza presione la flecha X.
-- Para hacer caer la pieza más rápido presione la flecha X.
-- Para mover la pieza lateralmente presione la flecha X para la derecha o flecha X para la izquierda.
+- Para rotar la pieza presione la flecha ARRIBA.
+- Para hacer caer la pieza más rápido presione la flecha ABAJO.
+- Para mover la pieza lateralmente presione la flecha DERECHA para la derecha o flecha IZQUIERDA para la izquierda.
 - Para reiniciar el juego presione la tecla ESC.
 
 ---
